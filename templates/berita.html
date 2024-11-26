@@ -1,0 +1,133 @@
+{% include 'layout/header.html' %}
+<body class="bg-light">
+    <!-- Navbar -->
+    {% include 'layout/navbar.html' %}
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Berita</h1>
+    </div>
+
+    <div class="container my-5">
+        <!-- Section Title -->
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 class="section-title">Berita Baru</h2>
+            <a href="#" class="text-decoration-none text-primary">See all</a>
+        </div>
+
+        <!-- News Grid -->
+        <div class="row">
+            <!-- News Items -->
+            <div class="col-md-4 mb-4">
+                <div class="card news-card">
+                    <img src="https://via.placeholder.com/300x200" alt="News Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Kegiatan Belajar Mengajar di Rumah 2020</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet adipiscing su...</p>
+                        <a href="#" class="read-more">Read More...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card news-card">
+                    <img src="https://via.placeholder.com/300x200" alt="News Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Kegiatan Belajar Mengajar di Rumah</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet adipiscing su...</p>
+                        <a href="#" class="read-more">Read More...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card news-card">
+                    <img src="https://via.placeholder.com/300x200" alt="News Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Belajar di Rumah</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet adipiscing su...</p>
+                        <a href="#" class="read-more">Read More...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Highlighted News -->
+        <div class="container my-4">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://via.placeholder.com/300x200" class="img-fluid rounded-start"
+                                alt="Kegiatan Belajar Mengajar">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Kegiatan Belajar Mengajar di Rumah</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis lobortis lorem.
+                                    Quisque mattis felis augue. Quisque sed elit eget ante faucibus blandit facilisis ac
+                                    nibh.
+                                </p>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Recent News -->
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="card news-card">
+                    <img src="https://via.placeholder.com/300x200" alt="News Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Kegiatan Belajar Mengajar di Rumah 2020</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet adipiscing su...</p>
+                        <a href="#" class="read-more">Read More...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card news-card">
+                    <img src="https://via.placeholder.com/300x200" alt="News Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Kegiatan Belajar Mengajar di Rumah</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet adipiscing su...</p>
+                        <a href="#" class="read-more">Read More...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card news-card">
+                    <img src="https://via.placeholder.com/300x200" alt="News Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Belajar di Rumah</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet adipiscing su...</p>
+                        <a href="#" class="read-more">Read More...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card news-card">
+                    <img src="https://via.placeholder.com/300x200" alt="News Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Kegiatan Pembelajaran Daring</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet adipiscing su...</p>
+                        <a href="#" class="read-more">Read More...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Post Section -->
+        <div class="recent-post mt-4">
+            <h5 class="mb-3">Recent Post</h5>
+            <a href="#" class="d-inline-block mb-2">Belajar di rumah</a>
+            <a href="#" class="d-inline-block mb-2">Belajar Sehari di Luar di Kelas SMPN 1 Cibadak</a>
+            <a href="#" class="d-inline-block mb-2">Kegiatan Belajar Mengajar di Rumah</a>
+            <a href="#" class="d-inline-block mb-2">Kegiatan Belajar Mengajar di Rumah 2020</a>
+        </div>
+    </div>
+
+{% include 'layout/footer.html' %}

@@ -1,0 +1,135 @@
+{% include 'layout/header.html' %}
+<style>
+    .card {
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+        width: 200px;
+        height: 150px;
+        margin-bottom: 15px;
+    }
+
+    .divider {
+        border-left: 2px solid #ddd;
+        height: 100%;
+    }
+</style>
+<body class="bg-light">
+    {% include 'layout/navbar.html' %}
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <h1 class="display-4 mb-3">Selamat Datang di SDN Gubeng 1 Surabaya</h1>
+            <p class="lead">SDN Gubeng 1 Menumbuhkan Kreativitas, 
+                Membangun Masa Depan Yang lebih baik</p>
+        </div>
+    </div>
+    <div class="container my-5">
+        <h2 class="mb-4">Sambutan Kepala Sekolah</h2>
+        <div class="row">
+            <div class="col-lg-4">
+                <p class="mb-4">
+                    <img src="https://via.placeholder.com/300x200" alt="News Image">
+                </p>
+            </div>
+            <div class="col-md-8">
+                <p class="mb-4">
+                    Puji dan syukur mari kita panjatkan kehadirat Allah SWT. Yang senantiasa dengan sifat kasih dan sayangnya banyak memberikan nikmat  ...
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <!-- Profil Sekolah -->
+            <div class="col-md-5">
+                <h2>Profil Sekolah</h2>
+                <p>
+                    Di samping adalah profil sekolah kami secara keseluruhan dari mulai bagian depan hingga seluruh
+                    fasilitas yang terdapat di sekolah kami. Kami akan ...
+                </p>
+                <button class="btn btn-primary">Lebih Lanjut</button>
+            </div>
+
+            <div class="col-md-1 d-none d-md-block">
+                <div class="divider"></div>
+            </div>
+
+            <!-- Kartu Informasi -->
+            <div class="col-md-6">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card text-center p-3">
+                            <img src="https://via.placeholder.com/50" alt="Fasilitas">
+                            <h5>Fasilitas</h5>
+                            <p>Lorem ipsum dolor sit amet adipiscing aqua lorem ipsum.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card text-center p-3">
+                            <img src="https://via.placeholder.com/50" alt="Lokasi">
+                            <h5>Lokasi</h5>
+                            <p>Lorem ipsum dolor sit amet adipiscing aqua lorem ipsum.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card text-center p-3">
+                            <img src="https://via.placeholder.com/50" alt="Sejarah">
+                            <h5>Sejarah</h5>
+                            <p>Lorem ipsum dolor sit amet adipiscing aqua lorem ipsum.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card text-center p-3">
+                            <img src="https://via.placeholder.com/50" alt="Prestasi">
+                            <h5>Prestasi</h5>
+                            <p>Lorem ipsum dolor sit amet adipiscing aqua lorem ipsum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Title -->
+        <div class="d-flex justify-content-between align-items-center mt-5">
+            <h2 class="section-title">Berita Baru</h2>
+            <a href="#" class="text-decoration-none text-primary">See all</a>
+        </div>
+
+        <!-- News Grid -->
+        <div class="row">
+            <!-- News Items -->
+            <div class="col-md-4 mb-4">
+                <div class="card news-card">
+                    <img src="https://via.placeholder.com/300x200" alt="News Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Kegiatan Belajar Mengajar di Rumah 2020</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet adipiscing su...</p>
+                        <a href="#" class="read-more">Read More...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card news-card">
+                    <img src="https://via.placeholder.com/300x200" alt="News Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Kegiatan Belajar Mengajar di Rumah</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet adipiscing su...</p>
+                        <a href="#" class="read-more">Read More...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card news-card">
+                    <img src="https://via.placeholder.com/300x200" alt="News Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Belajar di Rumah</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet adipiscing su...</p>
+                        <a href="#" class="read-more">Read More...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% include 'layout/footer.html' %}

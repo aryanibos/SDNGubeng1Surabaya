@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+            <img src="{{ url_for('static', filename='logosdgubeng.jpg') }}" alt="SDN Gubeng 1 Logo" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link {% if title == 'Home' %}active{% endif %}" href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link {% if title == 'About' %}active{% endif %}" href="{{ url_for('about') }}">About</a></li>
+                <li class="nav-item"><a class="nav-link {% if title == 'Guru' %}active{% endif %}" href="{{ url_for('guru') }}">Guru</a></li>
+                <li class="nav-item"><a class="nav-link {% if title == 'Visi & Misi' %}active{% endif %}" href="{{ url_for('visimisi') }}">Visi & Misi</a></li>
+                <li class="nav-item"><a class="nav-link {% if title == 'Gallery' %}active{% endif %}" href="{{ url_for('gallery') }}">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link {% if title == 'Informasi' %}active{% endif %}" href="{{ url_for('informasi') }}">Informasi</a></li>
+                <li class="nav-item"><a class="nav-link {% if title == 'Kontak' %}active{% endif %}" href="{{ url_for('kontak') }}">Kontak</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
