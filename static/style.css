@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #f5f7fa;
     margin: 0;
     padding: 0;
@@ -18,11 +18,12 @@ body {
 }
 
 .nav-link {
-    color: #ffffff !important;
+    color: #000000 !important;
+    font-weight: bold;
 }
 
 .nav-link.active {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid rgb(0, 0, 0);
 }
 
 /* Hero Section */
@@ -39,7 +40,7 @@ body {
 }
 
 .hero-section h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -182,7 +183,7 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #d7d9da;
+    background-color: #E6E6E7;
     padding: 3rem 0;
 }
 

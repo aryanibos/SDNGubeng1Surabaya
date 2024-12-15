@@ -3,7 +3,8 @@
         <div class="row">
             <!-- Logo and Contact Info -->
             <div class="col-md-4 mb-4">
-                <img src="{{ url_for('static', filename='logosdgubeng.jpg') }}" alt="SDN Gubeng 1 Logo" class="footer-logo mb-3">
+                <img src="{{ url_for('static', filename='logoSDN1Gubeng.png') }}" alt="SDN Gubeng 1 Logo"
+                    class="footer-logo mb-3">
                 <p class="mb-2">Jl. Gubeng Jaya V No.2, Gubeng, Kec. Gubeng, Surabaya,<br>Jawa Timur 60281</p>
                 <p class="mb-1">
                     <a href="mailto:info@sdgubeng1surabaya.sch.id" class="text-dark text-decoration-none">
@@ -41,9 +42,12 @@
             <div class="col-md-3 mb-4">
                 <h5 class="mb-3">Media Sosial</h5>
                 <div class="social-icons">
-                    <a href="https://twitter.com" target="_blank" aria-label="Twitter" class="text-dark"><i class="bi bi-twitter"></i></a>
-                    <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="text-dark"><i class="bi bi-facebook"></i></a>
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="text-dark"><i class="bi bi-instagram"></i></a>
+                    <a href="https://youtu.be/g0mWpowGisw?si=ElbP-Q-7RnNwOz2_" target="_blank" aria-label="Twitter"
+                        class="text-dark"><i class="bi bi-youtube"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="text-dark"><i
+                            class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/sdnegerigubeng1sby?igsh=bmNiYXFucmswa2ts" target="_blank"
+                        aria-label="Instagram" class="text-dark"><i class="bi bi-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -59,3 +63,18 @@
         </div>
     </div>
 </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbar = document.getElementById('main-navbar');
+
+        // Function to toggle class based on scroll position
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('fixed-top', 'scrolled'); // Tambahkan fixed-top dan scrolled
+            } else {
+                navbar.classList.remove('fixed-top', 'scrolled'); // Hapus fixed-top dan scrolled
+            }
+        });
+    });
+</script>

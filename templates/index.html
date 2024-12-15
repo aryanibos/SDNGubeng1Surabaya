@@ -1,135 +1,195 @@
 {% include 'layout/header.html' %}
 <style>
-    .card {
+    .hero-section {
+        position: relative;
+        width: 98.7vw;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/static/uploads/bghtml.jpg');
+        background-size: cover;
+        background-position: center;
+        filter: blur(5px);
+        z-index: 1;
+    }
+
+    .hero-section .content {
+        position: relative;
+        z-index: 2;
+        color: white;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-section p.lead {
+        font-size: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .section-title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+    }
+
+    .news-card {
         border: none;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .card img {
-        width: 200px;
-        height: 150px;
-        margin-bottom: 15px;
+    .news-card .card-img-top {
+        height: 200px;
+        object-fit: cover;
     }
 
-    .divider {
-        border-left: 2px solid #ddd;
-        height: 100%;
+    .news-card .read-more {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .navbar {
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar.scrolled {
+        background-color: #343a40;
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .gallery img {
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
     }
 </style>
+
 <body class="bg-light">
     {% include 'layout/navbar.html' %}
-    <!-- Hero Section -->
+
     <div class="hero-section">
-        <div class="container">
-            <h1 class="display-4 mb-3">Selamat Datang di SDN Gubeng 1 Surabaya</h1>
-            <p class="lead">SDN Gubeng 1 Menumbuhkan Kreativitas, 
-                Membangun Masa Depan Yang lebih baik</p>
+        <div class="content">
+            <h1>Selamat Datang di Website Kami</h1>
+            <p>Menumbuhkan Kreativitas dan Membangun Masa Depan</p>
+            <a href="/about" class="btn btn-primary">Kenali Kami Lebih Lanjut</a>
         </div>
     </div>
+
     <div class="container my-5">
-        <h2 class="mb-4">Sambutan Kepala Sekolah</h2>
+        <h2 class="mb-4 section-title">Sambutan Kepala Sekolah</h2>
         <div class="row">
             <div class="col-lg-4">
                 <p class="mb-4">
-                    <img src="https://via.placeholder.com/300x200" alt="News Image">
+                    <img src="https://via.placeholder.com/300x200" alt="News Image" class="img-fluid">
                 </p>
             </div>
             <div class="col-md-8">
                 <p class="mb-4">
-                    Puji dan syukur mari kita panjatkan kehadirat Allah SWT. Yang senantiasa dengan sifat kasih dan sayangnya banyak memberikan nikmat  ...
+                    Puji dan syukur mari kita panjatkan kehadirat Allah SWT. Yang senantiasa dengan sifat kasih dan
+                    sayangnya banyak memberikan nikmat ...
                 </p>
             </div>
         </div>
 
         <div class="row mt-5">
-            <!-- Profil Sekolah -->
-            <div class="col-md-5">
-                <h2>Profil Sekolah</h2>
+            <div class="col-md-12">
+                <h2 class="section-title">Profil Sekolah</h2>
                 <p>
                     Di samping adalah profil sekolah kami secara keseluruhan dari mulai bagian depan hingga seluruh
                     fasilitas yang terdapat di sekolah kami. Kami akan ...
                 </p>
-                <button class="btn btn-primary">Lebih Lanjut</button>
-            </div>
-
-            <div class="col-md-1 d-none d-md-block">
-                <div class="divider"></div>
-            </div>
-
-            <!-- Kartu Informasi -->
-            <div class="col-md-6">
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <div class="card text-center p-3">
-                            <img src="https://via.placeholder.com/50" alt="Fasilitas">
-                            <h5>Fasilitas</h5>
-                            <p>Lorem ipsum dolor sit amet adipiscing aqua lorem ipsum.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card text-center p-3">
-                            <img src="https://via.placeholder.com/50" alt="Lokasi">
-                            <h5>Lokasi</h5>
-                            <p>Lorem ipsum dolor sit amet adipiscing aqua lorem ipsum.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card text-center p-3">
-                            <img src="https://via.placeholder.com/50" alt="Sejarah">
-                            <h5>Sejarah</h5>
-                            <p>Lorem ipsum dolor sit amet adipiscing aqua lorem ipsum.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card text-center p-3">
-                            <img src="https://via.placeholder.com/50" alt="Prestasi">
-                            <h5>Prestasi</h5>
-                            <p>Lorem ipsum dolor sit amet adipiscing aqua lorem ipsum.</p>
-                        </div>
-                    </div>
-                </div>
+                <a href="/about" class="btn btn-primary">Lebih Lanjut</a>
             </div>
         </div>
 
-        <!-- Section Title -->
         <div class="d-flex justify-content-between align-items-center mt-5">
             <h2 class="section-title">Berita Baru</h2>
-            <a href="#" class="text-decoration-none text-primary">See all</a>
+            <a href="{{ url_for('informasi') }}" class="text-decoration-none text-primary">Lihat Semua</a>
+        </div>
+        
+        <div class="row">
+            {% if news_items %}
+            {% for news in news_items %}
+            <div class="col-md-4 mb-4">
+                <div class="card news-card">
+                    <img src="{{ news.image }}" alt="{{ news.title }}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ news.title }}</h5>
+                        <p class="card-text">{{ news.summary }}</p>
+                        <a href="{{ news.link }}" class="read-more" target="_blank">Read More...</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p class="text-center">Tidak ada berita terbaru.</p>
+            {% endif %}
         </div>
 
-        <!-- News Grid -->
         <div class="row">
-            <!-- News Items -->
-            <div class="col-md-4 mb-4">
-                <div class="card news-card">
-                    <img src="https://via.placeholder.com/300x200" alt="News Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Kegiatan Belajar Mengajar di Rumah 2020</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet adipiscing su...</p>
-                        <a href="#" class="read-more">Read More...</a>
+            <h2 class="section-title">Gallery</h2>
+                <div class="row">
+                    {% if galleries %}
+                    {% for gallery in galleries %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card" style="width: 19rem;">
+                            <img src="{{ url_for('static', filename=gallery['foto'][0]) }}"
+                                alt="{{ gallery['deskripsi'] }}" class="card-img-top"
+                                style="object-fit: cover; height: 150px;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ gallery['judul'] }}</h5>
+                                <p class="card-text">{{ gallery['deskripsi'] }}</p>
+                                <a href="{{ url_for('detailGallery', gallery_id=gallery['_id']) }}"
+                                    class="btn btn-primary">Lihat Foto</a>
+                            </div>
+                        </div>
                     </div>
+                    {% endfor %}
+                    {% else %}
+                    <p class="text-center">Tidak ada galeri yang tersedia.</p>
+                    {% endif %}
                 </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card news-card">
-                    <img src="https://via.placeholder.com/300x200" alt="News Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Kegiatan Belajar Mengajar di Rumah</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet adipiscing su...</p>
-                        <a href="#" class="read-more">Read More...</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card news-card">
-                    <img src="https://via.placeholder.com/300x200" alt="News Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Belajar di Rumah</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet adipiscing su...</p>
-                        <a href="#" class="read-more">Read More...</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-{% include 'layout/footer.html' %}
+
+    {% include 'layout/footer.html' %}
+
+    <script>
+        var navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

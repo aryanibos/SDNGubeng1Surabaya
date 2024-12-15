@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Registration Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .form-section {
+            padding: 40px;
+            flex: 1;
+        }
+
+        .form-section h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .form-section p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-section label {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .form-section input[type="text"],
+        .form-section input[type="email"],
+        .form-section input[type="password"] {
+            padding: 10px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-section button {
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #ccc;
+            /* Default warna tombol dinonaktifkan */
+            border: none;
+            border-radius: 4px;
+            cursor: not-allowed;
+            /* Default tidak interaktif */
+        }
+
+        .form-section button:enabled {
+            background-color: #007bff;
+            /* Warna tombol aktif */
+            cursor: pointer;
+        }
+
+        .form-section button:enabled:hover {
+            background-color: #0056b3;
+            /* Warna tombol saat hover */
+        }
+
+        .form-section button:enabled:active {
+            background-color: #004494;
+            /* Warna tombol saat ditekan */
+        }
+
+        .form-section .login-link {
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        .form-section .login-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .form-section .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .image-section {
+            flex: 1;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 300px;
+            /* Batasi lebar gambar */
+            height: auto;
+            /* Sesuaikan tinggi proporsional */
+            border-radius: 8px;
+            /* Opsional: Membuat gambar lebih estetis */
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .image-section {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1>Daftar Sekarang juga!</h1>
+            <p>Already have an account? <a href="/login">Log in</a></p>
+            <form method="POST" action="/register">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
+
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" required />
+
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" required />
+
+                <label for="confirm_password">Confirm Password</label>
+                <input id="confirm_password" name="confirm_password" type="password" required />
+
+                <input type="hidden" name="status" value="pending" />
+
+                <button type="submit" disabled>Create an account</button>
+            </form>
+            <p class="login-link">Already have an account? <a href="/login">Log in</a></p>
+        </div>
+        <div class="image-section">
+            <img src="/static/gambar-register.png" height="800" width="600" alt="Logo">
+        </div>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const button = form.querySelector('button');
+        const inputs = form.querySelectorAll('input');
+
+        function validateForm() {
+            let isValid = true;
+            inputs.forEach(input => {
+                if (input.type !== "hidden" && input.value.trim() === '') {
+                    isValid = false;
+                }
+            });
+            button.disabled = !isValid; // Aktifkan tombol jika semua input valid
+        }
+
+        inputs.forEach(input => {
+            input.addEventListener('input', validateForm);
+        });
+
+        validateForm(); // Validasi awal saat halaman dimuat
+    </script>
+</body>
+
+</html>

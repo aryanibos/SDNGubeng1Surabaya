@@ -1,3 +1,220 @@
 {% include 'layout/header.html' %}
-{% include 'layout/navbar.html' %}
-{% include 'layout/footer.html' %}
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .visi-misi-section {
+        background: url('/static/bg2.jpg') no-repeat center center;
+        background-size: cover;
+        padding: 50px 0;
+    }
+
+    .visi-misi-card {
+        background: white;
+        border: none;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .section-title {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .hero-section {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/uploads/bghtml.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 100px 0;
+        margin-bottom: 40px;
+    }
+    ol{
+        text-align: justify;
+    }
+</style>
+
+<body class="bg-light">
+    <!-- Navbar -->
+    {% include 'layout/navbar.html' %}
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <h1 class="display-4 mb-3">Visi Dan Misi SDN Gubeng 1 Surabaya</h1>
+        </div>
+    </div>
+
+    <!-- Visi & Misi Section -->
+    <div class="visi-misi-section">
+        <div class="container text-center">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="container my-5">
+                        <div class="section-title">Visi</div>
+                        <div class="p-4 bg-white rounded shadow-sm">
+                            <p>“Peduli dan berbudaya lingkungan hidup, inovatif, gotong royong, serta
+                                beriman dan bertaqwa”</p>
+                            <ol>
+                                <li>Peduli dan berbudaya lingkungan hidup, siswa melakukan gerakan untuk
+                                    mendukung pendidikan lingkungan hidup bagi masyarakat pada
+                                    umumnya, serta untuk warga sekolah khususnya yaitu salah satunya adalah
+                                    Gerakan Peduli dan Berbudaya Lingkungan Hidup di Sekolah. GPBLHS
+                                    ini nantinya akan diintegrasikan dengan program Adiwiyata. Sekolah
+                                    Adiwiyata adalah penghargaan yang diberikan oleh pemerintah,
+                                    pemerintah daerah/provinsi atau dan pemerintah kabupaten/kota kepada
+                                    sekolah yang berhasil melaksanakan GPBLH.</li>
+                                <li>Kreatif, Pelajar yang bersifat kreatif mampu mengadaptasi dan
+                                    menciptakan sesuatu yang berbeda, memiliki makna, bermanfaat, dan
+                                    memberikan dampak positif. Dimensi kreatif memiliki tiga elemen kunci,
+                                    yaitu: Menghasilkan gagasan yang orisinal. Menghasilkan karya dan
+                                    tindakan yang orisinal</li>
+                                <li>Inovatif, Siswa Inovatif menawarkan bagaimana metode pembelajaran
+                                    inovatif yang dapat membantu siswa meningkatkan pemahaman mereka
+                                    dalam materi-materi pelajaran, memberikan mereka kepercayaan diri dan
+                                    keterampilan yang diperlukan untuk mencapai hasil yang lebih baik serta
+                                    pengembangan diri yang holistik</li>
+                                <li>Gotong Royong, Pelajar Indonesia memiliki kemampuan bergotong-royong, yaitu
+                                    kemampuan untuk melakukan kegiatan secara bersama-sama dengan suka rela agar
+                                    kegiatan yang dikerjakan dapat berjalan
+                                    lancar, mudah dan ringan. Elemen-elemen dari bergotong royong adalah
+                                    kolaborasi, kepedulian, dan berbagi.</li>
+                                <li>Iman dan taqwa, peserta didik berakhlak dalam hubungannya dengan
+                                    Tuhan Yang Maha Esa dan memahami ajaran agama dan kepercayaannya
+                                    serta menerapkan pemahaman tersebut dalam kehidupan sehari-hari.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="container my-5">
+                        <div class="section-title">Misi</div>
+                        <div class="p-4 bg-white rounded shadow-sm">
+                            <ol>
+                                <li>Merancang pembelajaran yang berfokus pada pemenuhan kebutuhan peserta
+                                    didik di masa sekarang dan mendatang.</li>
+                                <li>Mengembangkan ketahanan pribadi peserta didik dalam beradaptasi dalam
+                                    perubahan di masa sekarang dan mendatang.</li>
+                                <li>Meningkatkan penggunaan teknologi melalui penerapan literasi digital oleh
+                                    peserta didik.</li>
+                                <li>Mengembangkan kemandirian, nalar kritis dan kreativitas yang
+                                    memfasilitasikeragaman minat dan bakat sehingga memunculkan prestasi
+                                    peserta didik.</li>
+                                <li>Mengembangkan program sekolah yang sesuai dengan tantangan sekarang
+                                    dengan memusatkan pengembangan akhlak peserta didik dalam
+                                    hubungannya dengan sesama, tumbahan dan hewan, serta Tuhan yang
+                                    Maha Esa.</li>
+                                <li>Meningkatkan hubungan dengan lingkungan sekitar dan masyarakat untuk
+                                    mengembangkan peran serta masyarakat dalam kegiatan keagamaan.</li>
+                                <li>Mengembangkan sarana prasarana yang mendukung peserta didik dalam
+                                    memenuhi kebutuhan di sekolah dalam rangka menumbuhkan inovasi peserta
+                                    didik.</li>
+                                <li>Menumbuhkan rasa kepedulian lingkungan peserta didik untuk ikut serta
+                                    berpartisipasi dalam Gerakan Peduli dan Berbudaya Lingkungan Hidup di Sekolah.</li>
+                                <li>Mengembangkan lingkungan yang aman dan nyaman bagi peserta didik
+                                    dengan Sekolahe Arek Suroboyo.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tujuan Section -->
+    <div class="container my-5">
+        <div class="section-title">Tujuan Sekolah Pada Tahun 2025</div>
+        <div class="p-4 bg-white rounded shadow-sm">
+            <ol>
+                <li>Tujuan Jangka Pendek (1 tahun ke depan)</li>
+                <p>a. Mengembangkan pembelajaran yang berfokus pada kodrat peserta
+                    didik dengan kompetensi pedagogik dan professional guru.</p>
+                <p>b. Meningkatkan adaptasi peserta didik dalam pembelajaran setelah
+                    pandemic.</p>
+                <p>c. Meningkatkan penggunaan teknologi melalui penerapan literasi digital
+                    oleh peserta didik.</P>
+                <p>d. Mengoptimalkan kemandirian peserta didik dengan kegiatan
+                    pembelajaran inovatif.</p>
+                <p>e. Mengoptimalkan nalar kritis peserta didik dengan kegiatan
+                    intrakurikuler.</p>
+                <p>f. Mengoptimalkan kreativitas peserta didik dengan kegiatan
+                    ekstrakurikuler.</p>
+                <p>g. Meningkatkan akhlak peserta didik dengan kegiatan keagamaan dan
+                    pembiasaan di sekolah.</p>
+                <p>h. Meningkatkan hubungan dengan orang tua siswa dengan Kerjasama
+                    dengan orang tua melalui komunikasi secara berkelanjutan.</p>
+                <p>i. Merevitalisasi sarana olahraga dan kesenian dengan pemeliharaan dan
+                    pemakaian saat kegiatan pembelajaran</p>
+                <p>j. Mengoptimalkan program Sekolahe Arek Suroboyo (SAS)</p>
+
+                <li>Tujuan Jangka Menengah (2 - 3 tahun ke depan)</li>
+                <p>a. Membiasakan peserta didik untuk berperan aktif dalam kegiatan
+                    pembelajaran di kelas.</p>
+                <p>b. Membudayakan siswa beradaptasi di lingkungan sekitar.</p>
+                <p>c. Membudayakan kemandirian, nalar kritis dan kreativitas di
+                    lingkungan sekolah.</P>
+                <p>d. Membiasakan kepedulian orang tua peserta didik dalam peduli terhadap
+                    sekolah.</p>
+                <p>e. Terwujudnya sarana prasarana yang mendukung peserta didik dalam
+                    memenuhi kebutuhan di sekolah.</p>
+                <p>f. Terwujudnya rasa kepedulian lingkungan peserta didik dalam Gerakan
+                    sadar perubahan iklim.</p>
+
+                <li>Tujuan Jangka Panjang (4 tahun ke depan)</li>
+                <p>a. pembelajaran yang berfokus pada pemenuhan kebutuhan peserta didik
+                    di masa sekarang dan mendatang.</p>
+                <p>b. Mengembangkan ketahanan pribadi peserta didik dalam beradaptasi
+                    dalam perubahan di masa pembelajaran setelah pandemic.</p>
+                <p>c. Mengembangkan peserta didik dalam mencapai tujuan nasional bangsa
+                    Indonesia.</P>
+                <p>d. Terbentuknya profil pelajar Pancasila pada setiap peserta didik di
+                    sekolah.</p>
+                <p>e. Meningkatnya capaian rapor Pendidikan di satuan Pendidikan.</p>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Strategi Section -->
+    <div class="container my-5">
+        <div class="section-title">Kompetensi Karakteristik Kekhasan Lulusan Sekolah</div>
+        <div class="p-4 bg-white rounded shadow-sm">
+            <ol>
+
+                <li>Memiliki perilaku yang menunjukkan akhlak mulia.</li>
+                <li>Memiliki dan menjunjung nilai harmonisasi keragaman dan
+                    gotong royong.</li>
+                <li>Memiliki pengetahuan dan keterampilan sebagai dasar
+                    mengembangkan kecakapan hidup.</li>
+                <li>Memiliki kemampuan bernalar kritis dan berkomunikasi efektif.</li>
+                <li>Memiliki kreativitas, kemandirian dan inovatif dalam menjawab
+                    tantangan perkembangan zaman.</li>
+                <li>Membentuk individu sebagai pembelajar sepanjang hayat yang
+                    berpikir global dengan tetap menjunjung nilai budaya bangsa.</li>
+
+            </ol>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    {% include 'layout/footer.html' %}
+</body>
+
+</html>

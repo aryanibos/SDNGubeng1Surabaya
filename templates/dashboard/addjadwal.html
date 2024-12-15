@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Jadwal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --sidebar-width: 260px;
+            --navy-blue: #1a237e;
+            --light-blue: #64b5f6;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: var(--navy-blue);
+            color: white;
+            padding: 1rem;
+        }
+
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 1rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0.75rem 1rem;
+            margin: 0.25rem 0;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        /* Form specific styles */
+        .form-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .form-control, .form-select {
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--light-blue);
+            box-shadow: 0 0 0 0.2rem rgba(100, 181, 246, 0.25);
+        }
+
+        .btn-submit {
+            background-color: var(--light-blue);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            border: none;
+        }
+
+        .btn-submit:hover {
+            background-color: #1e88e5;
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">M</div>
+        <h5 class="mb-4">Welcome Admin</h5>
+        <nav class="nav flex-column">
+            <a class="nav-link" href="/dashboard"><i class="bi bi-house-door me-2"></i> Dashboard</a>
+            <a class="nav-link" href="/kelola/teacher"><i class="bi bi-person me-2"></i> Teachers</a>
+            <a class="nav-link active" href="/kelola/mapel"><i class="bi bi-calendar me-2"></i> Jadwal Kelas</a>
+            <a class="nav-link" href="/kelola/galeri"><i class="bi bi-images me-2"></i> Gallery</a>
+            <a class="nav-link" href="/kelola/user"><i class="bi bi-people me-2"></i> Pengguna</a>
+            <a class="nav-link " href="/kelola/kontak"><i class="bi bi-envelope me-2"></i> Kontak Masuk</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Bar -->
+        <div class="d-flex justify-content-end mb-4">
+            <button class="btn btn-link position-relative me-3">
+                <i class="bi bi-bell fs-5"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    1
+                </span>
+            </button>
+            <button class="btn btn-outline-secondary">Log out</button>
+        </div>
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="jadwalkelas.html">Jadwal Kelas</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add Jadwal</li>
+            </ol>
+        </nav>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <h2 class="mb-4">Add Jadwal</h2>
+            <form action="{{ url_for('addJadwal') }}" method="POST">
+                <div class="mb-3">
+                    <label for="hari" class="form-label">Hari</label>
+                    <select class="form-select" id="hari" name="hari">
+                        <option>Senin</option>
+                        <option>Selasa</option>
+                        <option>Rabu</option>
+                        <option>Kamis</option>
+                        <option>Jumat</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="kelas">Kelas:</label>
+                    <select class="form-control" id="kelas" name="kelas" required>
+                        <option value="" disabled selected>Pilih Kelas</option>
+                        {% for kelas in kelas_list %}
+                        <option value="{{ kelas.nama }}">{{ kelas.nama }}</option>
+                        {% endfor %}
+                    </select>
+                </div>                
+                <div class="mb-3">
+                    <label for="mata_pelajaran" class="form-label">Mata Pelajaran</label>
+                    <input type="text" class="form-control" id="mata_pelajaran" name="mata_pelajaran" required>
+                </div>
+                <div class="mb-3">
+                    <label for="start_time" class="form-label">Waktu Mulai</label>
+                    <input type="time" class="form-control" id="start_time" name="start_time" required>
+                </div>
+                <div class="mb-3">
+                    <label for="end_time" class="form-label">Waktu Selesai</label>
+                    <input type="time" class="form-control" id="end_time" name="end_time" required>
+                </div>
+                <div class="mb-3">
+                    <label for="nama" class="form-label">Nama Guru</label>
+                    <select name="nama" id="nama" class="form-select" required>
+                        <option value="" disabled selected>Pilih Nama Guru</option>
+                        {% for nama in nama_guru_list %}
+                        <option value="{{ nama }}">{{ nama }}</option>
+                        {% endfor %}
+                    </select>
+                </div>                            
+                <button type="submit" class="btn btn-primary">Tambah Jadwal</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

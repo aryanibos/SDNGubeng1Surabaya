@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            background-color: black;
+            box-shadow: 0 0 20px rgba(250, 250, 250, 0.1);
+        }
+
+        .left {
+            position: relative;
+            /* Agar elemen teks di atas gambar */
+            color: white;
+            padding: 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 300px;
+            overflow: hidden;
+            /* Pastikan gambar tidak keluar dari container */
+        }
+
+        .left .background-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Sesuaikan gambar dengan ukuran container */
+            z-index: 0;
+            /* Pastikan gambar berada di belakang */
+            opacity: 0.3;
+            /* Sesuaikan transparansi gambar */
+        }
+
+        .left .circle,
+        .left h1,
+        .left p {
+            position: relative;
+            z-index: 1;
+            /* Pastikan teks dan elemen lain di atas gambar */
+        }
+
+        .left .circle {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .left h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .left p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .right {
+            background-color: white;
+            padding: 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .right label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .right input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .right .password-container {
+            position: relative;
+        }
+
+        .right .password-container input {
+            padding-right: 40px;
+        }
+
+        .right .password-container .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .right .forgot-password {
+            font-size: 12px;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .right .forgot-password a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        .right .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .right button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ccc;
+            /* Default warna tombol dinonaktifkan */
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: not-allowed;
+            /* Default tidak interaktif */
+            color: white;
+        }
+
+        .right button:enabled {
+            background-color: #007bff;
+            /* Warna tombol aktif */
+            cursor: pointer;
+        }
+
+        .right button:enabled:hover {
+            background-color: #0056b3;
+            /* Warna tombol saat hover */
+        }
+
+        .right button:enabled:active {
+            background-color: #004494;
+            /* Warna tombol saat ditekan */
+        }
+
+        .right .signup {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .right .signup a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        .right .signup a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left,
+            .right {
+                flex: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="/static/gambar-login.png" alt="Background Image" class="background-img">
+            <div class="circle"></div>
+            <h1>Masuk Sekarang</h1>
+            <p>Selamat datang di halaman login kami. Masuk untuk mengakses akun Anda dan nikmati fitur-fitur eksklusif.
+            </p>
+        </div>
+        <div class="right">
+            <h2>Sign in</h2>
+
+            <form method="POST">
+                <label for="username">User name or email address</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Your password</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required>
+                    <i class="fas fa-eye toggle-password"></i>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Forget your password</a>
+                </div>
+                <button type="submit" disabled>Sign in</button>
+                <div class="signup">
+                    Don't have an account? <a href="#">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        const form = document.querySelector('form');
+        const button = form.querySelector('button');
+        const inputs = form.querySelectorAll('input');
+
+        // Validasi input untuk mengaktifkan tombol
+        function validateForm() {
+            let isValid = true;
+            inputs.forEach(input => {
+                if (input.value.trim() === '') {
+                    isValid = false;
+                }
+            });
+            button.disabled = !isValid; // Aktifkan tombol jika semua input valid
+        }
+
+        // Tambahkan event listener untuk semua input
+        inputs.forEach(input => {
+            input.addEventListener('input', validateForm);
+        });
+
+        // Toggle visibilitas password
+        document.querySelector('.toggle-password').addEventListener('click', function () {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Validasi awal saat halaman dimuat
+        validateForm();
+    </script>
+</body>
+
+</html>

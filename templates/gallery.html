@@ -1,3 +1,75 @@
 {% include 'layout/header.html' %}
-{% include 'layout/navbar.html' %}
-{% include 'layout/footer.html' %}
+<style>
+    .card {
+        border: none;
+        overflow: hidden;
+        position: relative;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+    }
+
+    .card-img-overlay {
+        background: rgba(0, 123, 255, 0.8);
+        color: white;
+        position: absolute;
+        height: 50px;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .card-body {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+
+    .hero-section {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/uploads/bghtml.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 100px 0;
+        margin-bottom: 40px;
+    }
+</style>
+
+<body class="bg-light">
+    {% include 'layout/navbar.html' %}
+    <div class="hero-section">
+        <div class="container">
+            <h1 class="display-4 mb-3">Gallery SDN Gubeng 1 Surabaya</h1>
+            <p class="lead">Beberapa Foto - Foto di SDN Gubeng 1 Surabaya</p>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            {% for gallery in galleries %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <!-- Menampilkan foto pertama sebagai thumbnail -->
+                    <img src="{{ url_for('static', filename=gallery['foto'][0]) }}" alt="{{ gallery['deskripsi'] }}" style="height: 200px; object-fit: cover;">
+                    <div class="card-img-overlay">{{ gallery['deskripsi'] }}</div>
+                    <div class="card-body">
+                        <p class="card-text">{{ gallery['deskripsi'] }}</p>
+                        <a href="{{ url_for('detailGallery', gallery_id=gallery['_id']) }}" class="btn btn-primary">Lihat
+                            Foto</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% include 'layout/footer.html' %}
+</body>
+
+</html>

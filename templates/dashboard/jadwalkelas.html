@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Kelas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --sidebar-width: 260px;
+            --navy-blue: #1a237e;
+            --light-blue: #64b5f6;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: var(--navy-blue);
+            color: white;
+            padding: 1rem;
+        }
+
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 1rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0.75rem 1rem;
+            margin: 0.25rem 0;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        /* Table specific styles */
+        .table-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .table > :not(caption) > * > * {
+            padding: 1rem;
+        }
+
+        .table > thead {
+            background-color: #f8f9fa;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Search and filter styles */
+        .search-container {
+            position: relative;
+        }
+
+        .search-container .bi-search {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+
+        .search-input {
+            padding-left: 2.5rem;
+            border-radius: 8px;
+        }
+
+        .btn-add {
+            background-color: var(--light-blue);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .btn-add:hover {
+            background-color: #1e88e5;
+            color: white;
+        }
+
+        .btn-export {
+            color: var(--light-blue);
+            border-color: var(--light-blue);
+        }
+
+        .btn-export:hover {
+            background-color: var(--light-blue);
+            color: white;
+        }
+
+        .action-buttons .btn {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+   <!-- Sidebar -->
+   <div class="sidebar">
+        <div class="logo">M</div>
+        <h5 class="mb-4">Welcome Admin</h5>
+        <nav class="nav flex-column">
+            <a class="nav-link" href="/dashboard"><i class="bi bi-house-door me-2"></i> Dashboard</a>
+            <a class="nav-link" href="/kelola/teacher"><i class="bi bi-person me-2"></i> Teachers</a>
+            <a class="nav-link" href="/kelola/kelas"><i class="bi bi-book me-2"></i> Kelola Kelas</a>
+            <a class="nav-link active" href="/kelola/mapel"><i class="bi bi-calendar me-2"></i> Jadwal Kelas</a>
+            <a class="nav-link" href="/kelola/galeri"><i class="bi bi-images me-2"></i> Gallery</a>
+            <a class="nav-link " href="/kelola/kontak"><i class="bi bi-envelope me-2"></i> Kontak Masuk</a>
+            <a class="nav-link" href="/kelola/about"><i class="bi bi-info-square me-2"></i> Kelola About</a>
+            <a class="nav-link" href="/kelola/user"><i class="bi bi-people me-2"></i> Pengguna</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="d-flex justify-content-end mb-4">
+            <button class="btn btn-link position-relative me-3">
+                <i class="bi bi-bell fs-5"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    1
+                </span>
+            </button>
+            <button class="btn btn-outline-secondary">Log out</button>
+        </div>
+
+        <!-- Header Section -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Jadwal Kelas</h2>
+            <div class="d-flex gap-2">
+                <button class="btn btn-outline-primary btn-export">
+                    Export CSV
+                </button>
+                <a href="/kelola/add-jadwal" class="btn btn-add">
+                    <i class="bi bi-plus-lg me-2"></i>Add Jadwal
+                </a>
+            </div>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="search-container">
+                    <i class="bi bi-search"></i>
+                    <input type="text" class="form-control search-input" id="searchInput" placeholder="Search for anything">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select" id="kelasFilter">
+                    <option value="">Semua Kelas</option>
+                    {% for kelas in classes %}
+                    <option value="{{ kelas }}">{{ kelas }}</option>
+                    {% endfor %}
+                </select>
+            </div>            
+        </div>
+
+        <!-- Table Section -->
+        <div class="table-container">
+            <table class="table table-hover" id="scheduleTable">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Hari</th>
+                        <th>Mata Pelajaran</th>
+                        <th>Waktu</th>
+                        <th>Pengajar</th>
+                        <th>Kelas</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for schedule in jadwal_list %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ schedule.hari }}</td>
+                        <td>{{ schedule.mata_pelajaran }}</td>
+                        <td>{{ schedule.start_time }} - {{ schedule.end_time }}</td>
+                        <td>{{ schedule.pengajar }}</td>
+                        <td>{{ schedule.kelas }}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <a href="{{ url_for('editJadwal', jadwal_id=schedule._id) }}" class="btn btn-warning btn-sm text-white">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a href="{{ url_for('deleteJadwal', jadwal_id=schedule._id) }}" 
+                                   class="btn btn-danger btn-sm" 
+                                   onclick="return confirm('Apakah Anda yakin ingin menghapus jadwal ini?')">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const kelasFilter = document.getElementById('kelasFilter');
+            const table = document.getElementById('scheduleTable');
+            const rows = table.getElementsByTagName('tr');
+
+            function filterTable() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedKelas = kelasFilter.value.toLowerCase();
+
+                for (let i = 1; i < rows.length; i++) {
+                    const row = rows[i];
+                    const rowData = row.textContent.toLowerCase();
+                    const rowKelas = row.cells[5].textContent.toLowerCase();
+
+                    if (rowData.includes(searchTerm) && (selectedKelas === '' || rowKelas === selectedKelas)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            }
+
+            searchInput.addEventListener('input', filterTable);
+            kelasFilter.addEventListener('change', filterTable);
+        });
+    </script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

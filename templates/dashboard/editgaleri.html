@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add User</title>
+    <title>Edit Galeri</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -107,8 +107,8 @@
         <h5 class="mb-4">Welcome Admin</h5>
         <nav class="nav flex-column">
             <a class="nav-link" href="/dashboard"><i class="bi bi-house-door me-2"></i> Dashboard</a>
-            <a class="nav-link active" href="/kelola/teacher"><i class="bi bi-person me-2"></i> Teachers</a>
-            <a class="nav-link" href="/kelola/mapel"><i class="bi bi-calendar me-2"></i> Jadwal Kelas</a>
+            <a class="nav-link" href="/kelola/teacher"><i class="bi bi-person me-2"></i> Teachers</a>
+            <a class="nav-link active" href="/kelola/mapel"><i class="bi bi-calendar me-2"></i> Jadwal Kelas</a>
             <a class="nav-link" href="/kelola/galeri"><i class="bi bi-images me-2"></i> Gallery</a>
             <a class="nav-link" href="/kelola/user"><i class="bi bi-people me-2"></i> Pengguna</a>
             <a class="nav-link " href="/kelola/kontak"><i class="bi bi-envelope me-2"></i> Kontak Masuk</a>
@@ -120,40 +120,33 @@
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ url_for('teacher') }}">Teachers</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Teacher</li>
+                <li class="breadcrumb-item"><a href="{{ url_for('galeri') }}">Gallery</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Gallery</li>
             </ol>
         </nav>
-    
+
         <!-- Form Container -->
         <div class="container my-4">
-            <h2>Edit Guru</h2>
-            <form method="POST" action="{{ url_for('editTeacher', teacher_id=teacher._id) }}" enctype="multipart/form-data">
+            <h2>Edit Galeri</h2>
+            <form method="POST" action="{{ url_for('editGaleri', gallery_id=gallery._id) }}"
+                enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="foto" class="form-label">Foto Saat Ini</label>
-                    <img src="{{ teacher.foto }}" alt="Foto Guru" width="150">
+                    {% for foto in gallery['foto'] %}
+                    <img src="{{ url_for('static', filename=foto) }}" alt="{{ gallery['deskripsi'] }}" width="100">
+                    {% endfor %}
                     <label for="foto" class="form-label mt-2">Ganti Foto</label>
-                    <input type="file" name="foto" id="foto" class="form-control">
+                    <input type="file" name="foto" id="foto" class="form-control" multiple required>
                 </div>
                 <div class="mb-3">
-                    <label for="nama" class="form-label">Nama</label>
-                    <input type="text" name="nama" id="nama" value="{{ teacher.nama }}" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="pelajaran" class="form-label">Mata Pelajaran</label>
-                    <input type="text" name="pelajaran" id="pelajaran" value="{{ teacher.pelajaran }}" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="umur" class="form-label">Umur</label>
-                    <input type="number" name="umur" id="umur" value="{{ teacher.umur }}" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" id="email" value="{{ teacher.email }}" class="form-control" required>
+                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                    <input type="text" name="deskripsi" id="deskripsi" value="{{ gallery.deskripsi }}"
+                        class="form-control" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
+    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

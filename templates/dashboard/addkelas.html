@@ -107,11 +107,11 @@
         <h5 class="mb-4">Welcome Admin</h5>
         <nav class="nav flex-column">
             <a class="nav-link" href="/dashboard"><i class="bi bi-house-door me-2"></i> Dashboard</a>
-            <a class="nav-link active" href="/kelola/teacher"><i class="bi bi-person me-2"></i> Teachers</a>
+            <a class="nav-link" href="/kelola/teacher"><i class="bi bi-person me-2"></i> Teachers</a>
+            <a class="nav-link  active" href="/kelola/kelas"><i class="bi bi-book me-2"></i> Kelola Kelas</a>
             <a class="nav-link" href="/kelola/mapel"><i class="bi bi-calendar me-2"></i> Jadwal Kelas</a>
             <a class="nav-link" href="/kelola/galeri"><i class="bi bi-images me-2"></i> Gallery</a>
-            <a class="nav-link" href="/kelola/user"><i class="bi bi-people me-2"></i> Pengguna</a>
-            <a class="nav-link " href="/kelola/kontak"><i class="bi bi-envelope me-2"></i> Kontak Masuk</a>
+            <a class="nav-link " href="/kelola/user"><i class="bi bi-people me-2"></i> Pengguna</a>
         </nav>
     </div>
 
@@ -120,38 +120,20 @@
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ url_for('teacher') }}">Teachers</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Teacher</li>
+                <li class="breadcrumb-item"><a href="{{ url_for('addKelas') }}">Kelas</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add Kelas</li>
             </ol>
         </nav>
     
         <!-- Form Container -->
         <div class="container my-4">
-            <h2>Edit Guru</h2>
-            <form method="POST" action="{{ url_for('editTeacher', teacher_id=teacher._id) }}" enctype="multipart/form-data">
+            <h2>Tambah Kelas</h2>
+            <form method="POST" action="{{ url_for('addKelas') }}">
                 <div class="mb-3">
-                    <label for="foto" class="form-label">Foto Saat Ini</label>
-                    <img src="{{ teacher.foto }}" alt="Foto Guru" width="150">
-                    <label for="foto" class="form-label mt-2">Ganti Foto</label>
-                    <input type="file" name="foto" id="foto" class="form-control">
+                    <label for="nama" class="form-label">Nama Kelas</label>
+                    <input type="text" name="nama" id="nama" class="form-control" required>
                 </div>
-                <div class="mb-3">
-                    <label for="nama" class="form-label">Nama</label>
-                    <input type="text" name="nama" id="nama" value="{{ teacher.nama }}" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="pelajaran" class="form-label">Mata Pelajaran</label>
-                    <input type="text" name="pelajaran" id="pelajaran" value="{{ teacher.pelajaran }}" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="umur" class="form-label">Umur</label>
-                    <input type="number" name="umur" id="umur" value="{{ teacher.umur }}" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" id="email" value="{{ teacher.email }}" class="form-control" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
 

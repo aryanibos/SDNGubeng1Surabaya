@@ -1,0 +1,58 @@
+{% include 'layout/header.html' %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .gallery-container {
+        max-width: 800px;
+        margin: 40px auto;
+    }
+
+    .gallery-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .gallery-description {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .gallery-images {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .gallery-images img {
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+</style>
+
+<body class="bg-light">
+    {% include 'layout/navbar.html' %}
+    <div class="gallery-container">
+        <h1 class="display-4 mb-3">Detail Foto Galeri</h1>
+        <div class="gallery-description">{{ gallery['deskripsi'] }}</div>
+        <div class="gallery-images">
+            {% for foto in gallery['foto'] %}
+            <img src="{{ url_for('static', filename=foto) }}" alt="{{ gallery['deskripsi'] }}">
+            {% endfor %}
+        </div>
+    </div>
+    {% include 'layout/footer.html' %}
+</body>
+
+</html>

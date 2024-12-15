@@ -1,0 +1,110 @@
+{% include 'layout/header.html' %}
+
+<body class="bg-light">
+    {% include 'layout/navbar.html' %}
+    <div class="container mt-5">
+        <h2>Edit Informasi About</h2>
+        <form method="POST" action="{{ url_for('kelola_about') }}">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <h4>Sejarah Sekolah</h4>
+                    <div class="form-group">
+                        <label>Paragraf 1</label>
+                        <textarea class="form-control" name="sejarah_paragraf1" rows="4">{{ about.sejarah_paragraf1 or '' }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Paragraf 2</label>
+                        <textarea class="form-control" name="sejarah_paragraf2" rows="4">{{ about.sejarah_paragraf2 or '' }}</textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <h4>Informasi Sekolah</h4>
+                    <div class="form-group">
+                        <label>Nama Sekolah</label>
+                        <input type="text" class="form-control" name="nama_sekolah" value="{{ about.nama_sekolah or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Nama Kepala Sekolah</label>
+                        <input type="text" class="form-control" name="nama_kepala_sekolah" value="{{ about.nama_kepala_sekolah or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <textarea class="form-control" name="alamat" rows="3">{{ about.alamat or '' }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Website</label>
+                        <input type="text" class="form-control" name="website" value="{{ about.website or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="email" value="{{ about.email or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Telepon</label>
+                        <input type="text" class="form-control" name="telepon" value="{{ about.telepon or '' }}">
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <h4>Detail Administratif</h4>
+                    <div class="form-group">
+                        <label>No. Pendirian Sekolah</label>
+                        <input type="text" class="form-control" name="no_pendirian" value="{{ about.no_pendirian or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>No. Sertifikat</label>
+                        <input type="text" class="form-control" name="no_sertifikat" value="{{ about.no_sertifikat or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Akreditasi</label>
+                        <input type="text" class="form-control" name="akreditasi" value="{{ about.akreditasi or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Tahun Pendirian</label>
+                        <input type="text" class="form-control" name="tahun_pendirian" value="{{ about.tahun_pendirian or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Tahun Operasional</label>
+                        <input type="text" class="form-control" name="tahun_operasional" value="{{ about.tahun_operasional or '' }}">
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <h4>Informasi Tambahan</h4>
+                    <div class="form-group">
+                        <label>No. Statistik Sekolah</label>
+                        <input type="text" class="form-control" name="no_statistik_sekolah" value="{{ about.no_statistik_sekolah or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>NIS</label>
+                        <input type="text" class="form-control" name="nis" value="{{ about.nis or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Status Kepemilikan Tanah</label>
+                        <input type="text" class="form-control" name="status_tanah" value="{{ about.status_tanah or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Luas Tanah</label>
+                        <input type="text" class="form-control" name="luas_tanah" value="{{ about.luas_tanah or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Status Bangunan</label>
+                        <input type="text" class="form-control" name="status_bangunan" value="{{ about.status_bangunan or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Luas Bangunan</label>
+                        <input type="text" class="form-control" name="luas_bangunan" value="{{ about.luas_bangunan or '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Fasilitas Lainnya</label>
+                        <textarea class="form-control" name="fasilitas_lainnya" rows="3">{{ about.fasilitas_lainnya or '' }}</textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+        </form>
+    </div>
+    {% include 'layout/footer.html' %}
+</body>
+</html>

@@ -1,6 +1,16 @@
 {% include 'layout/header.html' %}
+<style>
+    .hero-section {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/uploads/bghtml.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 100px 0;
+        margin-bottom: 40px;
+    }
+</style>
+
 <body class="bg-light">
-    <!-- Navbar -->
     {% include 'layout/navbar.html' %}
 
     <!-- Hero Section -->
@@ -17,10 +27,10 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <p class="mb-4">
-                    SDN Gubeng 1 Surabaya didirikan pada tahun 1965 berdasarkan Surat Keputusan Menteri Pendidikan dan Kebudayaan Republik Indonesia. Awalnya, sekolah ini berdiri di daerah yang kini menjadi pusat perdagangan di kawasan Gubeng. Berangkat dari antusias dan kepedulian masyarakat terhadap dunia pendidikan, sekolah ini resmi berdiri dengan nama SD Gubeng.
+                    {{ about.sejarah_paragraf1 or 'Informasi sejarah sekolah belum tersedia.' }}
                 </p>
                 <p class="mb-4">
-                    SDN Gubeng 1 Surabaya sebagai bagian dari dunia pendidikan di Kecamatan Gubeng memiliki peran penting dalam meningkatkan kualitas sumber daya manusia di jenjang Sekolah Dasar, khususnya di wilayah Kota Surabaya.
+                    {{ about.sejarah_paragraf2 or '' }}
                 </p>
             </div>
         </div>
@@ -36,24 +46,23 @@
                         <i class="bi bi-building"></i>
                     </div>
                     <h5>Nama Sekolah</h5>
-                    <p class="mb-4">SDN Gubeng 1</p>
+                    <p class="mb-4">{{ about.nama_sekolah or 'SDN Gubeng 1' }}</p>
                     <h5>Nama Kepala Sekolah</h5>
-                    <p class="mb-4">Drs Test</p>
+                    <p class="mb-4">{{ about.nama_kepala_sekolah or 'Drs Test' }}</p>
                     <div class="icon-circle">
                         <i class="bi bi-geo-alt"></i>
                     </div>
                     <p class="small mb-4">
-                        Jl. Gubeng Jaya V No.2, Gubeng, Kec. Gubeng, Surabaya,<br>
-                        Jawa Timur 60281
+                        {{ about.alamat or 'Jl. Gubeng Jaya V No.2, Gubeng, Kec. Gubeng, Surabaya, Jawa Timur 60281' }}
                     </p>
                     <div class="icon-circle">
                         <i class="bi bi-globe"></i>
                     </div>
                     <h5>Website/Email</h5>
-                    <p class="small mb-1">smpn1cibadak.sch.id /</p>
-                    <p class="small mb-4">smpn1cbd_kabsi@yahoo.com</p>
+                    <p class="small mb-1">{{ about.website or 'smpn1cibadak.sch.id' }} /</p>
+                    <p class="small mb-4">{{ about.email or 'smpn1cbd_kabsi@yahoo.com' }}</p>
                     <h5>No. Telp</h5>
-                    <p>(0266) 531333</p>
+                    <p>{{ about.telepon or '(0266) 531333' }}</p>
                 </div>
             </div>
 
@@ -66,9 +75,9 @@
                                 <i class="bi bi-building-check"></i>
                             </div>
                             <h5>No. Pendirian Sekolah</h5>
-                            <p>-</p>
+                            <p>{{ about.no_pendirian or '-' }}</p>
                             <h5>No. Sertifikat</h5>
-                            <p>421 / 997 / 2005</p>
+                            <p>{{ about.no_sertifikat or '421 / 997 / 2005' }}</p>
                         </div>
                     </div>
                     <div class="col-12">
@@ -77,22 +86,11 @@
                                 <i class="bi bi-award"></i>
                             </div>
                             <h5>Jenjang Akreditasi</h5>
-                            <p>A</p>
+                            <p>{{ about.akreditasi or 'A' }}</p>
                             <h5>Tahun Pendirian</h5>
-                            <p>1965</p>
+                            <p>{{ about.tahun_pendirian or '1965' }}</p>
                             <h5>Tahun Operasional</h5>
-                            <p>1966</p>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="card info-card p-4 text-center">
-                            <div class="icon-circle">
-                                <i class="bi bi-building-check"></i>
-                            </div>
-                            <h5>No. Pendirian Sekolah</h5>
-                            <p>-</p>
-                            <h5>No. Sertifikat</h5>
-                            <p>421 / 997 / 2005</p>
+                            <p>{{ about.tahun_operasional or '1966' }}</p>
                         </div>
                     </div>
                 </div>
@@ -107,9 +105,9 @@
                                 <i class="bi bi-graph-up"></i>
                             </div>
                             <h5>No. Statistik Sekolah</h5>
-                            <p>20 1 02 06 10 008</p>
+                            <p>{{ about.no_statistik_sekolah or '20 1 02 06 10 008' }}</p>
                             <h5>NIS</h5>
-                            <p>200080</p>
+                            <p>{{ about.nis or '200080' }}</p>
                         </div>
                     </div>
                     <div class="col-12">
@@ -118,11 +116,11 @@
                                 <i class="bi bi-house-check"></i>
                             </div>
                             <h5>Status Kepemilikan Tanah</h5>
-                            <p>Hak Milik</p>
+                            <p>{{ about.status_tanah or 'Hak Milik' }}</p>
                             <h5>Luas Tanah</h5>
-                            <p>5,007 M2</p>
+                            <p>{{ about.luas_tanah or '5,007 M2' }}</p>
                             <h5>Status Kepemilikan Bangunan</h5>
-                            <p>Pemerintah</p>
+                            <p>{{ about.status_bangunan or 'Pemerintah' }}</p>
                         </div>
                     </div>
                     <div class="col-12">
@@ -131,20 +129,16 @@
                                 <i class="bi bi-building-gear"></i>
                             </div>
                             <h5>Luas Seluruh Bangunan</h5>
-                            <p>2,140 M2</p>
+                            <p>{{ about.luas_bangunan or '2,140 M2' }}</p>
                             <h5>Fasilitas Lainnya</h5>
-                            <p>-</p>
-                            <h5>Sisi Lahan Seluruhnya</h5>
-                            <p>-</p>
+                            <p>{{ about.fasilitas_lainnya or 'Kolam Renang, Lapangan Futsal, Lapangan Basket' }}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
+    
     {% include 'layout/footer.html' %}
-
 </body>
 </html>

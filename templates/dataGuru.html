@@ -1,4 +1,15 @@
 {% include 'layout/header.html' %}
+<style>
+    .hero-section {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/uploads/bghtml.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 100px 0;
+        margin-bottom: 40px;
+    }
+</style>
+
 <body class="bg-light">
     <!-- Navbar -->
     {% include 'layout/navbar.html' %}
@@ -8,80 +19,104 @@
         <h1>Data Guru</h1>
     </div>
 
-    <div class="container">
-        <!-- Teacher Directory Search Bar -->
-        <div class="search-bar">
-            <input placeholder="Search Teacher" type="text"/>
+    <div class="container my-4">
+        <!-- Search Bar -->
+        <div class="mb-4">
+            <input id="searchTeacher" class="form-control" type="text" placeholder="Cari Guru">
         </div>
 
         <!-- Teacher Directory Grid -->
-        <div class="grid">
-            <div class="card">
-                <img alt="Portrait of a teacher" height="200" src="https://storage.googleapis.com/a1aa/image/lDRIN5h6gX4rM1QlyRa40EwonxGmGS3phRHISqeiLjjCaz5JA.jpg" width="200"/>
-                <p><span>Nama:</span> Hj. ELIS HERNAWATI, S.Pd.</p>
-                <p><span>NIP:</span> 19650515 199203 2 008</p>
-                <p><span>Pelajaran:</span> Ilmu Pengetahuan Sosial</p>
+        <div id="pagination-container">
+            <div class="grid" id="teacherGrid">
+                {% for teacher in teachers %}
+                <div class="card teacher-card">
+                    <img src="{{ teacher.foto }}" alt="Foto {{ teacher.nama }}" class="card-img">
+                    <div class="card-body">
+                        <p><strong>Nama:</strong> <span class="teacher-name">{{ teacher.nama }}</span></p>
+                        <p><strong>Umur:</strong> <span class="teacher-age">{{ teacher.umur }}</span></p>
+                        <p><strong>Pelajaran:</strong> <span class="teacher-subject">{{ teacher.pelajaran }}</span></p>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
-            <div class="card">
-                <img alt="Portrait of a teacher" height="200" src="https://storage.googleapis.com/a1aa/image/lDRIN5h6gX4rM1QlyRa40EwonxGmGS3phRHISqeiLjjCaz5JA.jpg" width="200"/>
-                <p><span>Nama:</span> Drs. Osadi</p>
-                <p><span>NIP:</span> 19621227 198903 1 014</p>
-                <p><span>Pelajaran:</span> Bahasa Indonesia</p>
-            </div>
-            <div class="card">
-                <img alt="Portrait of a teacher" height="200" src="https://storage.googleapis.com/a1aa/image/lDRIN5h6gX4rM1QlyRa40EwonxGmGS3phRHISqeiLjjCaz5JA.jpg" width="200"/>
-                <p><span>Nama:</span> Drs. Osadi</p>
-                <p><span>NIP:</span> 19621227 198903 1 014</p>
-                <p><span>Pelajaran:</span> Bahasa Indonesia</p>
-            </div>
-            <div class="card">
-                <img alt="Portrait of a teacher" height="200" src="https://storage.googleapis.com/a1aa/image/lDRIN5h6gX4rM1QlyRa40EwonxGmGS3phRHISqeiLjjCaz5JA.jpg" width="200"/>
-                <p><span>Nama:</span> Drs. Osadi</p>
-                <p><span>NIP:</span> 19621227 198903 1 014</p>
-                <p><span>Pelajaran:</span> Bahasa Indonesia</p>
-            </div>
-            <div class="card">
-                <img alt="Portrait of a teacher" height="200" src="https://storage.googleapis.com/a1aa/image/lDRIN5h6gX4rM1QlyRa40EwonxGmGS3phRHISqeiLjjCaz5JA.jpg" width="200"/>
-                <p><span>Nama:</span> Drs. Osadi</p>
-                <p><span>NIP:</span> 19621227 198903 1 014</p>
-                <p><span>Pelajaran:</span> Bahasa Indonesia</p>
-            </div>
-            <div class="card">
-                <img alt="Portrait of a teacher" height="200" src="https://storage.googleapis.com/a1aa/image/lDRIN5h6gX4rM1QlyRa40EwonxGmGS3phRHISqeiLjjCaz5JA.jpg" width="200"/>
-                <p><span>Nama:</span> Drs. Osadi</p>
-                <p><span>NIP:</span> 19621227 198903 1 014</p>
-                <p><span>Pelajaran:</span> Bahasa Indonesia</p>
-            </div>
-            <div class="card">
-                <img alt="Portrait of a teacher" height="200" src="https://storage.googleapis.com/a1aa/image/lDRIN5h6gX4rM1QlyRa40EwonxGmGS3phRHISqeiLjjCaz5JA.jpg" width="200"/>
-                <p><span>Nama:</span> Drs. Osadi</p>
-                <p><span>NIP:</span> 19621227 198903 1 014</p>
-                <p><span>Pelajaran:</span> Bahasa Indonesia</p>
-            </div>
-            <div class="card">
-                <img alt="Portrait of a teacher" height="200" src="https://storage.googleapis.com/a1aa/image/lDRIN5h6gX4rM1QlyRa40EwonxGmGS3phRHISqeiLjjCaz5JA.jpg" width="200"/>
-                <p><span>Nama:</span> Drs. Osadi</p>
-                <p><span>NIP:</span> 19621227 198903 1 014</p>
-                <p><span>Pelajaran:</span> Bahasa Indonesia</p>
-            </div>
-            <div class="card">
-                <img alt="Portrait of a teacher" height="200" src="https://storage.googleapis.com/a1aa/image/lDRIN5h6gX4rM1QlyRa40EwonxGmGS3phRHISqeiLjjCaz5JA.jpg" width="200"/>
-                <p><span>Nama:</span> Drs. Osadi</p>
-                <p><span>NIP:</span> 19621227 198903 1 014</p>
-                <p><span>Pelajaran:</span> Bahasa Indonesia</p>
-            </div>
-            <!-- Add more cards here -->
-        </div>
 
-        <!-- Pagination -->
-        <div class="pagination">
-            <a class="active" href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
+            <!-- Pagination Controls -->
+            <div class="pagination mt-4">
+                {% if current_page > 1 %}
+                <a href="{{ url_for('guru', page=current_page-1) }}" class="page-link">Previous</a>
+                {% endif %}
+
+                {% for page in range(1, total_pages + 1) %}
+                <a href="{{ url_for('guru', page=page) }}"
+                    class="page-link {% if page == current_page %}active{% endif %}">
+                    {{ page }}
+                </a>
+                {% endfor %}
+
+                {% if current_page < total_pages %} <a href="{{ url_for('guru', page=current_page+1) }}"
+                    class="page-link">Next</a>
+                    {% endif %}
+            </div>
         </div>
     </div>
 
-{% include 'layout/footer.html' %}
+    <style>
+        /* Fixed Card Size */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .card-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto;
+            object-fit: cover;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .page-link {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .page-link.active {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('searchTeacher');
+            const teacherCards = document.querySelectorAll('.teacher-card');
+
+            searchInput.addEventListener('input', function () {
+                const searchTerm = this.value.toLowerCase();
+
+                teacherCards.forEach(card => {
+                    const name = card.querySelector('.teacher-name').textContent.toLowerCase();
+                    const age = card.querySelector('.teacher-age').textContent.toLowerCase();
+                    const subject = card.querySelector('.teacher-subject').textContent.toLowerCase();
+
+                    if (name.includes(searchTerm) || age.includes(searchTerm) || subject.includes(searchTerm)) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+    {% include 'layout/footer.html' %}

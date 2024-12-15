@@ -1,3 +1,155 @@
 {% include 'layout/header.html' %}
-{% include 'layout/navbar.html' %}
+<style>
+    .hero-section {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/uploads/bghtml.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 60px 0;
+        margin-bottom: 40px;
+    }
+
+    .school-title {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .class-title {
+        color: #666;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+    }
+
+    .schedule-container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .table-schedule {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+    }
+
+    .table-schedule th,
+    .table-schedule td {
+        border: 1px solid #dee2e6;
+        padding: 8px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table-schedule th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .table-schedule td {
+        height: 60px;
+    }
+
+    .table-schedule small {
+        display: block;
+        font-size: 0.8em;
+        color: #666;
+    }
+
+    .select-class {
+        max-width: 400px;
+        margin: 0 auto 40px;
+    }
+
+    .form-select {
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid #dee2e6;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .btn-view {
+        background-color: #0d6efd;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 6px;
+        border: none;
+        width: 100%;
+        font-weight: 500;
+    }
+
+    .btn-view:hover {
+        background-color: #0b5ed7;
+    }
+    .subject {
+        font-weight: bold;
+    }
+    .teacher {
+        font-style: italic;
+    }
+</style>
+</head>
+<body>
+    {% include 'layout/navbar.html' %}
+    
+    <div class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Jadwal Pelajaran</h1>
+            <p class="lead">Pilih kelas untuk melihat jadwal</p>
+        </div>
+    </div>
+
+<div class="container mb-5">
+    <form action="/jadwalpelajaran" method="GET" class="text-center mb-4">
+        <select name="kelas" class="form-select" style="max-width: 400px; margin: 0 auto;">
+            <option value="" disabled selected>Pilih Kelas</option>
+            {% for k in kelas_list %}
+            <option value="{{ k }}" {% if selected_kelas == k %}selected{% endif %}>{{ k }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-primary mt-3">Lihat Jadwal</button>
+    </form>
+
+    {% if schedules %}
+    <div class="schedule-container">
+        <h2>Jadwal Kelas {{ selected_kelas }}</h2>
+        <table class="table table-schedule">
+            <thead>
+                <tr>
+                    <th>Jam</th>
+                    <th>Senin</th>
+                    <th>Selasa</th>
+                    <th>Rabu</th>
+                    <th>Kamis</th>
+                    <th>Jumat</th>
+                    <th>Sabtu</th>
+                    <th>Minggu</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for schedule in schedules %}
+                <tr>
+                    <td>{{ schedule.start_time }} - {{ schedule.end_time }}</td>
+                    {% for day in ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'] %}
+                    <td>
+                        {% if schedule[day] %}
+                        <div class="subject">{{ schedule[day].mata_pelajaran }}</div>
+                        <small class="teacher">{{ schedule[day].pengajar }}</small>
+                        {% endif %}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="text-muted text-center">Silakan pilih kelas untuk melihat jadwal.</p>
+    {% endif %}
+</div>
 {% include 'layout/footer.html' %}
